@@ -95,8 +95,8 @@ jobs:
           };
           const windows = findInstaller("Windows x64", name => name === `toonflow-${version}-Setup.exe`);
           const windowsArm = findInstaller("Windows ARM64", name => name === `toonflow-${version}-win-arm64-Setup.exe`);
-          const macArm = findInstaller("macOS ARM64", name => name === `toonflow-${version}-macos-arm64.pkg`);
-          const macIntel = findInstaller("macOS x64", name => name === `toonflow-${version}-macos-x64.pkg`);
+          // const macArm = findInstaller("macOS ARM64", name => name === `toonflow-${version}-macos-arm64.pkg`);
+          // const macIntel = findInstaller("macOS x64", name => name === `toonflow-${version}-macos-x64.pkg`);
           const linux = findInstaller("Linux x64", name => name === `toonflow-${version}-linux-x64.deb`);
           const linuxArm = findInstaller("Linux ARM64", name => name === `toonflow-${version}-linux-arm64.deb`);
           const android = findInstaller("Android ARM64", name => name === `toonflow-${version}-android-arm64.apk`);
@@ -111,8 +111,8 @@ jobs:
             "| --- | --- |",
             `| 💻 Windows（Intel / AMD，x64） | [⬇️ 下载 Windows x64 安装包](${download(windows)}) |`,
             `| 💻 Windows（ARM64） | [⬇️ 下载 Windows ARM64 安装包](${download(windowsArm)}) |`,
-            `| 🍎 Mac（M 系列芯片） | [⬇️ 下载 M 系列 Mac 安装包](${download(macArm)}) |`,
-            `| 🍎 Mac（Intel 芯片） | [⬇️ 下载 Intel Mac 安装包](${download(macIntel)}) |`,
+            // `| 🍎 Mac（M 系列芯片） | [⬇️ 下载 M 系列 Mac 安装包](${download(macArm)}) |`,
+            // `| 🍎 Mac（Intel 芯片） | [⬇️ 下载 Intel Mac 安装包](${download(macIntel)}) |`,
             `| 🐧 Linux（Intel / AMD，x64） | [⬇️ 下载 Linux x64 DEB](${download(linux)}) |`,
             `| 🐧 Linux（ARM64） | [⬇️ 下载 Linux ARM64 DEB](${download(linuxArm)}) |`,
             `| 📱 Android（ARM64，Android 8 及以上） | [⬇️ 下载 Android APK](${download(android)}) |`,
@@ -122,12 +122,12 @@ jobs:
             "## 🚀 安装说明",
             "",
             "- 💻 **Windows**：双击下载的安装包，按提示完成安装。ARM64 需要 .NET Framework 4.8.1，较新的 Windows 11 已内置。",
-            "- 🍎 **Mac（macOS 14 及以上）**：双击下载的 `.pkg`，按提示继续安装；安装期间会自动下载并准备必要运行时，完成后从“应用程序”打开 Toonflow。",
+            // "- 🍎 **Mac（macOS 14 及以上）**：双击下载的 `.pkg`，按提示继续安装；安装期间会自动下载并准备必要运行时，完成后从“应用程序”打开 Toonflow。",
             "- 🐧 **Linux（Debian / Ubuntu）**：选择对应架构的 DEB，在下载目录执行 `sudo apt install ./toonflow-版本号-linux-架构.deb`。安装后可在「设置 → 关于」更新；使用 2.0.10 的用户需先手动覆盖安装一次。",
             "- 📱 **Android**：在手机上打开 APK，按系统提示允许此来源安装应用。后续版本可直接覆盖安装。",
             "",
-            "两种 Mac 应用使用 Developer ID Application 签名，PKG 安装包使用 Developer ID Installer 签名，并完成 Apple 公证。首次打开时，macOS 仍可能提示确认打开从互联网下载的应用。",
-            "旧版 Intel Mac 客户端首次迁移到统一 SDK 版本时，请下载完整 PKG 覆盖安装；旧版增量更新不能直接迁移。安装前请退出应用并备份原数据目录。",
+            // "两种 Mac 应用使用 Developer ID Application 签名，PKG 安装包使用 Developer ID Installer 签名，并完成 Apple 公证。首次打开时，macOS 仍可能提示确认打开从互联网下载的应用。",
+            // "旧版 Intel Mac 客户端首次迁移到统一 SDK 版本时，请下载完整 PKG 覆盖安装；旧版增量更新不能直接迁移。安装前请退出应用并备份原数据目录。",
             "",
             "---",
             "",
@@ -183,8 +183,8 @@ jobs:
           const targets = [
             { platform: "win", arch: "x64" },
             { platform: "win", arch: "arm64" },
-            { platform: "macos", arch: "arm64" },
-            { platform: "macos", arch: "x64" },
+            // { platform: "macos", arch: "arm64" },
+            // { platform: "macos", arch: "x64" },
             { platform: "linux", arch: "x64" },
             { platform: "linux", arch: "arm64" },
           ];
