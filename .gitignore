@@ -31,3 +31,4 @@ Thumbs.db
 *.keychain-db
 .tmp/
 .claude
+.idea/
