@@ -163,8 +163,12 @@ jobs:
           const authorizeCode = process.env.uploadKey ?? "";
           const uploadPutUrl = process.env.uploadPutUrl ?? "";
           const uploadGetPutUrl = process.env.uploadGetPutUrl ?? "";
-          for (const [name, value] of Object.entries({ TFROUTER_UPLOAD_KEY: authorizeCode, TFROUTER_UPLOAD_PUT_URL: uploadPutUrl, TFROUTER_UPLOAD_GET_PUT_URL: uploadGetPutUrl })) {
-            if (!value.trim()) throw new Error(`请配置 ${name} Secret`);
+          const missingSecrets = Object.entries({ TFROUTER_UPLOAD_KEY: authorizeCode, TFROUTER_UPLOAD_PUT_URL: uploadPutUrl, TFROUTER_UPLOAD_GET_PUT_URL: uploadGetPutUrl })
+            .filter(([, value]) => !value.trim())
+            .map(([name]) => name);
+          if (missingSecrets.length) {
+            console.log(`::warning::未配置 ${missingSecrets.join("、")} Secret，跳过上传到更新托管网站`);
+            process.exit(0);
           }
           if (!/^\d+\.\d+\.\d+$/.test(version)) throw new Error("发布版本号必须为 X.Y.Z");
 
