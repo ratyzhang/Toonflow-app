@@ -29,7 +29,7 @@
                 <icon-brand-github v-if="updateSource === 'github'" :size="14" aria-hidden="true" />
                 <icon-world v-else :size="14" aria-hidden="true" />
               </template>
-              <el-option label="官方源" value="official" />
+              <!-- <el-option label="官方源" value="official" /> -->
               <el-option label="GitHub" value="github" />
               <el-option v-if="customUpdateUrl" label="自定义源" value="custom" />
             </el-select>
@@ -256,7 +256,7 @@ import {
 
 const messageMarkdown = defineAsyncComponent(() => import("@/components/messageMarkdown.vue"));
 const privacy = defineAsyncComponent(() => import("./privacy.vue"));
-const repositoryUrl = "https://github.com/HBAI-Ltd/Toonflow-app";
+const repositoryUrl = "https://github.com/ratyzhang/Toonflow-app";
 const communityUrl = "https://work.weixin.qq.com/u/vc66e4c7f8432af0d8?v=5.0.13.84802&bb=c03c3ad130";
 const clientBuild = ref<{ version: string; channel: string }>();
 const currentVersion = computed(() => actualPlatform.isDesktop && actualPlatform.isRemoteConnection
