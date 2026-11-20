@@ -204,8 +204,8 @@ jobs:
             fi
           done
 
-          # ACT: 降低并发避免跨境链路分片合并失败；关闭忽略错误使首个失败立即中止，便于定位。
-          "$ossutil" cp -r artifacts/ "$target" --jobs 2 --parallel 2 --disable-ignore-error
+          # ACT: v2.4.1 用 --job(单数) 控制多文件并发；批量失败以非零码退出，由 set -e 捕获，report 交后续步骤打印。
+          "$ossutil" cp -r artifacts/ "$target" --job 2 --parallel 2
 
           for file in artifacts/*; do
             name="${file##*/}"
