@@ -145,6 +145,7 @@ jobs:
           fail_on_unmatched_files: true
           files: artifacts/*
       - name: 上传到阿里云 OSS
+        id: ossUpload
         # ACT: Bucket 由用户配置为整个公共读，对象继承 Bucket ACL；RAM 策略仅需该前缀的 PutObject 与 GetObject。
         timeout-minutes: 60
         env:
@@ -203,7 +204,8 @@ jobs:
             fi
           done
 
-          "$ossutil" cp -r artifacts/ "$target" --parallel 4
+          # ACT: 降低并发避免跨境链路分片合并失败；关闭忽略错误使首个失败立即中止，便于定位。
+          "$ossutil" cp -r artifacts/ "$target" --jobs 2 --parallel 2 --disable-ignore-error
 
           for file in artifacts/*; do
             name="${file##*/}"
@@ -214,6 +216,19 @@ jobs:
             fi
           done
           echo "OSS 镜像已发布：${baseUrl}" >> "$GITHUB_STEP_SUMMARY"
+      - name: 输出 OSS 上传诊断报告
+        if: failure() && steps.ossUpload.outcome == 'failure'
+        run: |
+          shopt -s nullglob
+          reports=(ossutil_output/*.report)
+          if [ "${#reports[@]}" -eq 0 ]; then
+            echo "未找到 ossutil 诊断报告。"
+            exit 0
+          fi
+          for report in "${reports[@]}"; do
+            echo "===== $report ====="
+            cat "$report"
+          done
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: 1.4.3
