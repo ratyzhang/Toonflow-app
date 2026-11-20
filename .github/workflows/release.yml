@@ -144,6 +144,76 @@ jobs:
           generate_release_notes: true
           fail_on_unmatched_files: true
           files: artifacts/*
+      - name: 上传到阿里云 OSS
+        # ACT: Bucket 由用户配置为整个公共读，对象继承 Bucket ACL；RAM 策略仅需该前缀的 PutObject 与 GetObject。
+        timeout-minutes: 60
+        env:
+          releaseVersion: ${{ needs.build.outputs.version }}
+          ossAccessKeyId: ${{ secrets.OSS_ACCESS_KEY_ID }}
+          ossAccessKeySecret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
+          ossRegion: ${{ secrets.OSS_REGION }}
+          ossEndpoint: ${{ secrets.OSS_ENDPOINT }}
+          ossBucket: ${{ secrets.OSS_BUCKET }}
+        run: |
+          set -euo pipefail
+
+          missing=()
+          [ -n "$ossAccessKeyId" ] || missing+=(OSS_ACCESS_KEY_ID)
+          [ -n "$ossAccessKeySecret" ] || missing+=(OSS_ACCESS_KEY_SECRET)
+          [ -n "$ossRegion" ] || missing+=(OSS_REGION)
+          [ -n "$ossEndpoint" ] || missing+=(OSS_ENDPOINT)
+          [ -n "$ossBucket" ] || missing+=(OSS_BUCKET)
+          if [ "${#missing[@]}" -gt 0 ]; then
+            echo "::warning::未配置 ${missing[*]} Secret，跳过上传到阿里云 OSS"
+            exit 0
+          fi
+
+          version="$releaseVersion"
+          [[ "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || { echo "::error::发布版本号必须为 X.Y.Z"; exit 1; }
+          [[ "$ossBucket" =~ ^[a-z0-9][a-z0-9-]{1,61}[a-z0-9]$ ]] || { echo "::error::OSS_BUCKET 无效"; exit 1; }
+          [[ "$ossRegion" =~ ^[a-z0-9-]+$ ]] || { echo "::error::OSS_REGION 无效"; exit 1; }
+          [[ "$ossEndpoint" =~ ^[a-zA-Z0-9.-]+$ ]] || { echo "::error::OSS_ENDPOINT 无效"; exit 1; }
+
+          prefix="toonflow/${version}/"
+          target="oss://${ossBucket}/${prefix}"
+          baseUrl="https://${ossBucket}.${ossEndpoint}/${prefix}"
+          toolsDir="$RUNNER_TEMP/toonflowOssUtil"
+
+          curl --fail --silent --show-error --location --proto '=https' --max-time 120 \
+            -o "$toolsDir.zip" \
+            "https://gosspublic.alicdn.com/ossutil/v2/2.4.1/ossutil-2.4.1-linux-amd64.zip"
+          echo "57ee4c56796a40144acd6b0b96b53b4ba75e5cec09c01d8d0313c09a5524022f  $toolsDir.zip" | \
+            sha256sum --check --status || { echo "::error::ossutil 下载校验失败"; exit 1; }
+          unzip -q -o "$toolsDir.zip" -d "$toolsDir"
+          ossutil="$toolsDir/ossutil-2.4.1-linux-amd64/ossutil"
+          chmod +x "$ossutil"
+
+          export OSS_ACCESS_KEY_ID="$ossAccessKeyId"
+          export OSS_ACCESS_KEY_SECRET="$ossAccessKeySecret"
+          export OSS_REGION="$ossRegion"
+          export OSS_ENDPOINT="$ossEndpoint"
+
+          # ACT: 前缀按版本隔离；公共读 Bucket 用匿名 HEAD 探测，已存在即失败，不覆盖、不删除任何线上文件。
+          for file in artifacts/*; do
+            name="${file##*/}"
+            code=$(curl --silent --output /dev/null --write-out '%{http_code}' --head --max-time 30 --proto '=https' "${baseUrl}${name}" || true)
+            if [ "$code" = "200" ]; then
+              echo "::error::OSS 对象 ${prefix}${name} 已存在，拒绝覆盖。请核对后改用新版本号。"
+              exit 1
+            fi
+          done
+
+          "$ossutil" cp -r artifacts/ "$target" --parallel 4
+
+          for file in artifacts/*; do
+            name="${file##*/}"
+            code=$(curl --silent --output /dev/null --write-out '%{http_code}' --head --max-time 30 --proto '=https' "${baseUrl}${name}" || true)
+            if [ "$code" != "200" ]; then
+              echo "::error::OSS 对象 ${name} 上传后不可公共读（HTTP ${code}），请检查 Bucket 公共读配置。"
+              exit 1
+            fi
+          done
+          echo "OSS 镜像已发布：${baseUrl}" >> "$GITHUB_STEP_SUMMARY"
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: 1.4.3
