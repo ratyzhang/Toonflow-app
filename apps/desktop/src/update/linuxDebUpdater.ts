@@ -172,7 +172,7 @@ export default function createLinuxDebUpdater(resourcesDirectory: string, dataDi
           }
         }
         if (!patched) {
-          const official = local.baseUrl.replace(/\/$/, "") === "https://api.toonflow.net/web/version/desktopUpdates";
+          const official = local.baseUrl.replace(/\/$/, "") === "https://toonflow-app.oss-cn-hangzhou.aliyuncs.com";
           await download(deb, official ? `${prefix}-${target.hash}.deb` : deb.file, nextPath);
         }
         await rename(nextPath, finalPath);

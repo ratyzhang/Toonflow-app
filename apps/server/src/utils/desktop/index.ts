@@ -7,7 +7,7 @@ import { msg, translateError, translateMessage } from "@/lib/i18n";
 import { messageError } from "@toonflow/i18n/errors";
 
 const updateBaseUrls = {
-  // official: "https://api.toonflow.net/web/version/desktopUpdates",
+  official: "https://toonflow-app.oss-cn-hangzhou.aliyuncs.com",
   github: "https://github.com/ratyzhang/Toonflow-app/releases/latest/download",
 };
 const updateRuntimeId = crypto.randomUUID();
@@ -86,9 +86,9 @@ export function isValidUpdateUrl(value: unknown): value is string {
 function getUpdateBaseUrl(): string {
   const settings = conf.get("settings", {});
   if (settings.desktopUpdateSource === "custom" && isValidUpdateUrl(settings.desktopUpdateCustomUrl)) return settings.desktopUpdateCustomUrl;
-  // ACT: 官方源已停用，保留分支便于恢复；未配置及旧 official 配置统一落到 GitHub 源。
-  // if (settings.desktopUpdateSource === "official") return updateBaseUrls.official;
-  return updateBaseUrls.github;
+  if (settings.desktopUpdateSource === "github") return updateBaseUrls.github;
+  // ACT: 未配置、旧 official 及阿里云 OSS 配置统一落到 OSS 源。
+  return updateBaseUrls.official;
 }
 
 async function withUpdateSource<T>(updater: DesktopRuntime["updater"], updateBaseUrl: string, run: () => Promise<T>) {
