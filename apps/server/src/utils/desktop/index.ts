@@ -7,7 +7,8 @@ import { msg, translateError, translateMessage } from "@/lib/i18n";
 import { messageError } from "@toonflow/i18n/errors";
 
 const updateBaseUrls = {
-  official: "https://toonflow-app.oss-cn-hangzhou.aliyuncs.com",
+  // ACT: OSS 用 toonflow/latest 固定入口承载最新版本的扁平更新文件，客户端无需预知版本号。
+  official: "https://toonflow-app.oss-cn-hangzhou.aliyuncs.com/toonflow/latest",
   github: "https://github.com/ratyzhang/Toonflow-app/releases/latest/download",
 };
 const updateRuntimeId = crypto.randomUUID();

@@ -213,7 +213,23 @@ jobs:
               exit 1
             fi
           done
+
+          # ACT: latest 是固定入口，仅覆盖同名对象（-f 跳过询问），不删除任何旧对象；更新器只请求扁平文件名，无需预知版本号。
+          latestPrefix="toonflow/latest/"
+          latestTarget="oss://${ossBucket}/${latestPrefix}"
+          latestBaseUrl="https://${ossBucket}.${ossEndpoint}/${latestPrefix}"
+          "$ossutil" cp -r artifacts/ "$latestTarget" --parallel 4 -f
+
+          for file in artifacts/*; do
+            name="${file##*/}"
+            code=$(curl --silent --output /dev/null --write-out '%{http_code}' --head --max-time 30 --proto '=https' "${latestBaseUrl}${name}" || true)
+            if [ "$code" != "200" ]; then
+              echo "::error::OSS latest 对象 ${name} 上传后不可公共读（HTTP ${code}），请检查 Bucket 公共读配置。"
+              exit 1
+            fi
+          done
           echo "OSS 镜像已发布：${baseUrl}" >> "$GITHUB_STEP_SUMMARY"
+          echo "OSS latest 入口：${latestBaseUrl}" >> "$GITHUB_STEP_SUMMARY"
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: 1.4.3
