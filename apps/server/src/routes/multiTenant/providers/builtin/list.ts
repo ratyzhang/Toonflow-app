@@ -13,7 +13,7 @@ export default Router().get("/", validateFields(inputSchema.shape, "query"), asy
   const abort = () => controller.abort();
   res.on("close", abort);
   try {
-    const data = await u.channel.getChannel().getVendors(kind, { signal: controller.signal });
+    const data = await u.builtinProvider.list(kind, controller.signal);
     res.json(success(data));
   } finally { res.off("close", abort); }
 });
