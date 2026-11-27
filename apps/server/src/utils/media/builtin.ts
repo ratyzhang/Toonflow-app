@@ -22,7 +22,7 @@ const weiyuntlVendor: Vendor = {
   updateTime: Date.UTC(2026, 10, 25),
   version: weiyuntlFallbackVersion,
 };
-const weiyuntlSourceUrl = "https://res.token.weiyuntl.com/toonflow/weiyuntl.ts";
+const weiyuntlSourceUrl = "https://res.token.weiyuntl.com/toonflow/weiyuntl-media.ts";
 const weiyuntlVendorTtl = 5 * 60 * 1000;
 let weiyuntlVendorCache: { vendor: Vendor; at: number } | undefined;
 let weiyuntlVendorPending: Promise<Vendor> | undefined;
