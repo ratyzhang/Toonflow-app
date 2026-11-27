@@ -228,6 +228,23 @@ jobs:
               exit 1
             fi
           done
+
+          # ACT: 当前构建矩阵仅启用 Windows x64/ARM64；固定别名只覆盖这两个最新安装包，不改动版本目录与 latest 下其他对象。
+          aliases=(
+            "toonflow-latest-Setup.exe:toonflow-${version}-Setup.exe"
+            "toonflow-latest-win-arm64-Setup.exe:toonflow-${version}-win-arm64-Setup.exe"
+          )
+          for alias in "${aliases[@]}"; do
+            aliasName="${alias%%:*}"
+            sourceName="${alias#*:}"
+            aliasSource="artifacts/${sourceName}"
+            [ -f "$aliasSource" ] || { echo "::error::缺少安装包 ${sourceName}，无法生成固定入口 ${aliasName}"; exit 1; }
+            "$ossutil" cp "$aliasSource" "oss://${ossBucket}/${latestPrefix}${aliasName}" -f
+            aliasCode=$(curl --silent --output /dev/null --write-out '%{http_code}' --head --max-time 30 --proto '=https' "${latestBaseUrl}${aliasName}" || true)
+            [ "$aliasCode" = "200" ] || { echo "::error::OSS latest 固定安装包 ${aliasName} 上传后不可公共读（HTTP ${aliasCode}）"; exit 1; }
+            echo "OSS latest 固定安装包：${latestBaseUrl}${aliasName}" >> "$GITHUB_STEP_SUMMARY"
+          done
+
           echo "OSS 镜像已发布：${baseUrl}" >> "$GITHUB_STEP_SUMMARY"
           echo "OSS latest 入口：${latestBaseUrl}" >> "$GITHUB_STEP_SUMMARY"
       - uses: oven-sh/setup-bun@v2
