@@ -13,7 +13,7 @@ export const sourceSchema = listSchema.extend({ id: z.string().max(96).regex(/^[
 // compshare 优云智算
 // deepSeek DeepSeek
 const disabledVendorIds = new Set(["weimetaai", "metaso", "apimart", "compshare", "deepseek"]);
-const weiyuntlFallbackVersions: Record<VendorKind, string> = { language: "1.0.0", media: "1.1.8" };
+const weiyuntlFallbackVersions: Record<VendorKind, string> = { language: "1.0.0", media: "1.1.6" };
 
 // ACT: 远端不可达时的基线清单项；正常路径下所有字段都由远端 TS 与响应头动态构建。
 const weiyuntlVendor: Record<VendorKind, Vendor> = {
@@ -36,8 +36,6 @@ const weiyuntlSourceUrls: Record<VendorKind, string> = {
   language: "https://res.token.weiyuntl.com/toonflow/weiyuntl-language.ts",
   media: "https://res.token.weiyuntl.com/toonflow/weiyuntl-media.ts",
 };
-const weiyuntlVendorTtl = 5 * 60 * 1000;
-const weiyuntlVendorCache: Partial<Record<VendorKind, { vendor: Vendor; at: number }>> = {};
 const weiyuntlVendorPending: Partial<Record<VendorKind, Promise<Vendor>>> = {};
 
 function descriptionFromReadme(readme: string | undefined) {
@@ -87,8 +85,6 @@ async function fetchWeiyuntlSource(kind: VendorKind, signal?: AbortSignal) {
 }
 
 async function readWeiyuntlVendor(kind: VendorKind) {
-  const cached = weiyuntlVendorCache[kind];
-  if (cached && Date.now() - cached.at < weiyuntlVendorTtl) return cached.vendor;
   if (!weiyuntlVendorPending[kind]) {
     // ACT: 不传调用方 signal，避免一个客户端断开让共享刷新失败；这里只用内部的 20 秒超时。
     weiyuntlVendorPending[kind] = fetchWeiyuntlSource(kind)
@@ -96,10 +92,9 @@ async function readWeiyuntlVendor(kind: VendorKind) {
         const parsed = kind === "language" ? validateTextProviderSource(source) : validateMediaProviderSource(source);
         const vendor = vendorFromSource(kind, parsed, updateTime);
         if (vendor.id !== weiyuntlVendor[kind].id) throw Object.assign(new Error("智联天下供应商源码 ID 与所选供应商不一致"), { status: 502 });
-        weiyuntlVendorCache[kind] = { vendor, at: Date.now() };
         return vendor;
       })
-      .catch(() => weiyuntlVendorCache[kind]?.vendor ?? weiyuntlVendor[kind])
+      .catch(() => weiyuntlVendor[kind])
       .finally(() => { weiyuntlVendorPending[kind] = undefined; });
   }
   return weiyuntlVendorPending[kind]!;
