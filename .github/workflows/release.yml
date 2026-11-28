@@ -249,7 +249,7 @@ jobs:
           echo "OSS latest 入口：${latestBaseUrl}" >> "$GITHUB_STEP_SUMMARY"
       - uses: oven-sh/setup-bun@v2
         with:
-          bun-version: 1.4.3
+          bun-version: 1.4.5
       - name: 上传到更新托管网站
         timeout-minutes: 60
         env:
@@ -312,15 +312,29 @@ jobs:
             if (typeof archiveName !== "string" || !archiveName.startsWith(prefix) || !archiveName.endsWith(".tar.zst") || !names.includes(archiveName)) {
               throw new Error(`${manifestName} 引用的完整更新包不存在`);
             }
-            const fileNames = [installers[0]!, archiveName, ...names.filter(name => name.startsWith(prefix) && name.endsWith(".patch")), manifestName];
+            const fileNames = [installers[0]!, archiveName, ...names.filter(name => name.startsWith(prefix) && name.endsWith(".patch"))];
+            const checksumName = `${prefix}checksum.json`;
+            if (names.includes(checksumName)) fileNames.push(checksumName);
+            fileNames.push(manifestName);
             for (const name of fileNames) {
               if (!Bun.file(join("artifacts", name)).size) throw new Error(`构建产物为空：${name}`);
             }
-            if (target.platform === "linux" && (manifest.deb?.file !== installers[0] || !/^[a-zA-Z0-9]+$/.test(manifest.hash))) {
-              throw new Error(`${manifestName} 的 Debian 安装包或构建号无效`);
+            let installerAlias: string | undefined;
+            if (target.platform === "linux" || (target.platform === "macos" && manifest.pkg !== undefined)) {
+              const format = target.platform === "linux" ? "deb" : "pkg";
+              const asset = manifest[format];
+              if (asset?.file !== installers[0] || typeof manifest.hash !== "string" || !/^[a-zA-Z0-9]+$/.test(manifest.hash)) {
+                throw new Error(`${manifestName} 的安装包或构建号无效`);
+              }
+              if (format === "pkg") {
+                const pkg = Bun.file(join("artifacts", asset.file));
+                const digest = new Bun.CryptoHasher("sha256");
+                for await (const chunk of pkg.stream()) digest.update(chunk);
+                if (pkg.size !== asset.size || digest.digest("hex") !== asset.sha256) throw new Error(`${asset.file} 与更新清单不一致`);
+              }
+              installerAlias = `${prefix}${manifest.hash}.${format}`;
             }
-            const debAlias = target.platform === "linux" ? `${prefix}${manifest.hash}.deb` : undefined;
-            return { ...target, fileNames, debAlias };
+            return { ...target, fileNames, installerAlias };
           }));
           const plannedNames = new Set(plans.flatMap(plan => plan.fileNames));
           if (names.some(name => !plannedNames.has(name))) throw new Error("存在无法归属到发布平台的构建产物");
@@ -388,7 +402,7 @@ jobs:
             }
             const [application, ...files] = uploadedFiles;
             // 官网更新路由只查带渠道及架构前缀的 files；别名复用安装包对象，不重复上传。
-            if (plan.debAlias) files.push({ ...application!, fileName: plan.debAlias });
+            if (plan.installerAlias) files.push({ ...application!, fileName: plan.installerAlias });
             return { platform: plan.platform, arch: plan.arch, applicationPath: application!.fileUrl, files };
           })).catch(error => {
             uploadController.abort();

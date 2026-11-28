@@ -90,7 +90,7 @@
 </p>
 <p align="center">
   <img src="https://ziadoua.github.io/m3-Markdown-Badges/badges/TypeScript/typescript2.svg" alt="TypeScript" height="28" />&nbsp;
-  <img src="https://img.shields.io/badge/Bun-1.4.3-14151A?style=for-the-badge&logo=bun&logoColor=white" alt="Bun 1.4.3" />&nbsp;
+  <img src="https://img.shields.io/badge/Bun-1.4.5-14151A?style=for-the-badge&logo=bun&logoColor=white" alt="Bun 1.4.5" />&nbsp;
   <img src="https://img.shields.io/badge/Vue-3-42B883?style=for-the-badge&logo=vuedotjs&logoColor=white" alt="Vue 3" />&nbsp;
   <img src="https://img.shields.io/badge/Desktop-Electrobun-8257E5?style=for-the-badge" alt="Electrobun" />
 </p>
@@ -154,6 +154,15 @@
   <a href="https://api.toonflow.net/">Opisyal na Platform ng mga Modelo</a>
 </p>
 
+<p align="center">
+  📺 <a href="https://www.bilibili.com/video/BV1hbpb6xETF">Video ng pagpapakilala</a> ·
+  <a href="https://www.bilibili.com/video/BV1z4sS6NEA3">Demo ng TrumanMap previs</a>
+</p>
+
+<p align="center">🔥 Ang mga short drama na binuo batay sa Toonflow ay umabot na sa milyon-milyon, sampu-sampung milyon, at higit 100 milyong views sa Hongguo. <a href="#works">Tingnan ang mga gawa</a></p>
+
+https://github.com/user-attachments/assets/56d81114-7521-454c-9ec9-972567eddda9
+
 ---
 
 ## 1. 💛 Mga Sponsor at Suporta
@@ -181,7 +190,13 @@ Salamat sa mga sumusunod na katuwang sa pagsuporta sa open-source na proyektong 
       <br /><br />
       <sub>🎁 <a href="https://www.compshare.cn/video-studio?ytag=GPU_YY_YX_git_toonflow">Magparehistro gamit ang espesyal na link na ito</a> upang makatanggap ng CNY 5 na libreng credit para masubukan ang platform!</sub>
     </td>
-    <td width="50%" valign="top"></td>
+    <td width="50%" valign="top">
+      <a href="https://weimeta.cn/console/invite/accept?aff=INV202611191734123p9JeY"><img src="../images/sponsors/weimeta.svg" alt="WEIMETA AI" height="28" valign="middle" /> <strong>WEIMETA AI</strong></a>
+      <br />
+      <sub>Nag-aalok ang WEIMETA AI ng abot-kayang AI text, image, at video generation, at pinagsasama ang mga nangungunang model gaya ng DeepSeek, GLM, Kimi, Seedream, Seedance, Wan, at MiniMax H3. Sinusuportahan ang text-to-image, image-to-image, text-to-video, at image-to-video sa iisang unified API na may flexible na multi-model access para sa AI content ng mga negosyo. Gumagamit ang platform ng enterprise-grade na encrypted transmission at multi-tenant isolation, at pumasa sa Level 3 security assessment ng China.</sub>
+      <br /><br />
+      <sub>🎁 <a href="https://weimeta.cn/console/invite/accept?aff=INV202611191734123p9JeY">Magparehistro gamit ang espesyal na link na ito</a> para subukan ang multimodal model services ng WEIMETA AI. Limitadong alok: mag-top up ng CNY 100 at makakuha ng dagdag na CNY 15. Para sa negosyo, sa WeChat: WeiMeta_AI666</sub>
+    </td>
   </tr>
 </table>
 
@@ -200,17 +215,28 @@ Salamat sa mga sumusunod na katuwang sa pagsuporta sa open-source na proyektong 
 
 ## 2. 🌟 Mga Pangunahing Kakayahan
 
-Ang Toonflow ay isang open-source na AI platform para sa maiikling drama, animated na komiks, at maiikling video. Pinagsasama nito ang mga iskrip, asset, at video clip sa iisang walang-hanggang canvas.
-
-| Kakayahan | Paglalarawan |
+| Kakayahan | Paliwanag |
 | --- | --- |
-| 🏠 **Lokal na deployment** | Itago ang mga proyekto at asset sa sarili mong device o server. May mga opsyon para sa desktop, Android, Docker, at server deployment. |
-| 🖼️ **Walang-hanggang canvas** | Ayusin ang mga iskrip, tauhan, tagpuan, at video clip sa iisang canvas. |
-| 🔌 **MCP** | Kumonekta sa mga panlabas na tool at serbisyo sa pamamagitan ng MCP. |
-| 🧩 **Pamilihan ng mga plugin** | Palawakin ang mga node, tool, at kakayahan sa paglikha gamit ang [Pamilihan ng mga Plugin](https://api.toonflow.net/console/plugIn). |
-| 🤖 **Bukas na Agent** | Bukas ang mga prompt, tool, at A2A upang maiangkop ang kilos ng Agent at makipagtulungan sa mga panlabas na Agent. |
-| 🔧 **Malayang pagkonekta ng mga modelo** | Mag-configure ng mga third-party API o kumonekta sa lokal na ComfyUI at mga LLM. |
-| 🌐 **Suporta sa maraming wika** | Sinusuportahan ang 22 wika ng interface. |
+| 🎬 **TrumanMap previs** | I-paste ang script: 3D set, storyboard at blocking sa isang click. |
+| 🖼️ **Walang-hanggang canvas** | Script, karakter, eksena at clip na magkakaugnay. |
+| 🎥 **AI video generation** | I-@ ang asset at gumawa kada shot. |
+| 🤖 **AI assistant** | Nagbabasa at nag-e-edit ng canvas; may MCP at A2A. |
+| 🔧 **Kahit anong model** | Built-in na provider, third-party API, lokal na LLM, ComfyUI. |
+| 🧩 **Plugin market** | Mag-install ng node, tool at skill sa isang click. |
+| 🏠 **Lokal na deployment** | Windows, macOS, Linux, Android, Docker. |
+| 🌐 **Maraming wika** | 22 wika ng interface. |
+
+**Daloy**: Script at storyboard → karakter at eksena → 3D previs → video kada shot → edit at download.
+
+### Mga madalas itanong
+
+**Ano ang Toonflow?** Open-source na platform para sa AI short drama, AI comic at AI video.
+
+**Libre ba?** MIT license at libreng i-self-host; maaaring may bayad ang third-party model API.
+
+**Anong mga model?** Built-in ang Seedance, Seedream, MiniMax, Wan at iba pa; puwede rin ang third-party API, lokal na LLM at ComfyUI. Tingnan ang [gabay](https://qcn7xdsqgc4z.feishu.cn/docx/RXFqdgR2Xo0dXZxGfd0cZCGgnwf).
+
+**Anong mga platform?** Windows, macOS, Linux, Android, pati Docker at server.
 
 <a id="languages"></a>
 
@@ -220,31 +246,105 @@ Mga sinusuportahang wika: 简体中文, 繁體中文, English, 日本語, Рус
 
 ---
 
-## 3. 📸 Mga Screenshot
+## 3. 📸 10 Pangunahing Tampok
 
-<div align="center">
+<a id="trumanmap"></a>
 
-<a href="../images/screenshots/projectHome.png"><img src="../images/screenshots/projectHome.png" alt="Toonflow · Pangunahing pahina ng proyekto at paglikha mula sa ideya" width="80%" /></a><br /><sub>Pangunahing pahina ng proyekto at paglikha mula sa ideya</sub>
+### Tampok 1 | I-paste ang script, may 3D previs agad
 
-<a href="../images/screenshots/quickStart.png"><img src="../images/screenshots/quickStart.png" alt="Toonflow · Unang pagbukas at mabilis na pag-setup" width="80%" /></a><br /><sub>Unang pagbukas at mabilis na pag-setup</sub>
+Awtomatikong shot at blocking ayon sa linya; live na larawan at subtitle sa monitor. 📺 [Panoorin ang demo](https://www.bilibili.com/video/BV1z4sS6NEA3)
 
-<a href="../images/screenshots/canvasDark.png"><img src="../images/screenshots/canvasDark.png" alt="Toonflow · Canvas para sa paglikha · Madilim na tema" width="80%" /></a><br /><sub>Canvas para sa paglikha · Madilim na tema</sub>
+https://github.com/user-attachments/assets/bb2f7bfe-46de-44ff-b3b3-95379f9d4b20
 
-<a href="../images/screenshots/canvasLight.png"><img src="../images/screenshots/canvasLight.png" alt="Toonflow · Canvas para sa paglikha · Maliwanag na tema" width="80%" /></a><br /><sub>Canvas para sa paglikha · Maliwanag na tema</sub>
+<p align="center">
+  <a href="../images/screenshots/trumanMapTimeline.webp"><img src="../images/screenshots/trumanMapTimeline.webp" alt="Toonflow · I-paste ang script, may 3D previs agad" width="100%" /></a>
+</p>
 
-<a href="../images/screenshots/assetCanvas.png"><img src="../images/screenshots/assetCanvas.png" alt="Toonflow · Mga asset ng tauhan, tagpuan, at kagamitan" width="80%" /></a><br /><sub>Mga asset ng tauhan, tagpuan, at kagamitan</sub>
+<table>
+  <tr>
+    <td width="50%"><a href="../images/screenshots/trumanMapShot.webp"><img src="../images/screenshots/trumanMapShot.webp" alt="Toonflow · I-paste ang script, may 3D previs agad" width="100%" /></a></td>
+    <td width="50%"><a href="../images/screenshots/trumanMapStreet.webp"><img src="../images/screenshots/trumanMapStreet.webp" alt="Toonflow · I-paste ang script, may 3D previs agad" width="100%" /></a></td>
+  </tr>
+</table>
 
-<a href="../images/screenshots/directorStudio.png"><img src="../images/screenshots/directorStudio.png" alt="Toonflow · 3D na mesa ng direktor at paunang pagtingin sa kuha" width="80%" /></a><br /><sub>3D na mesa ng direktor at paunang pagtingin sa kuha</sub>
+### Tampok 2 | Walang-katapusang water town ng Jiangnan
 
-<a href="../images/screenshots/characterImageGeneration.png"><img src="../images/screenshots/characterImageGeneration.png" alt="Toonflow · Tatlong anggulo ng tauhan at pagbuo ng larawan" width="80%" /></a><br /><sub>Tatlong anggulo ng tauhan at pagbuo ng larawan</sub>
+Pader ng lungsod, kalye, kanal, templo at bundok: higit 1,500 bagay.
 
-<a href="../images/screenshots/videoGeneration.png"><img src="../images/screenshots/videoGeneration.png" alt="Toonflow · Pagbuo ng video gamit ang maraming sanggunian" width="80%" /></a><br /><sub>Pagbuo ng video gamit ang maraming sanggunian</sub>
+<p align="center">
+  <a href="../images/screenshots/trumanMapTown.webp"><img src="../images/screenshots/trumanMapTown.webp" alt="Toonflow · Walang-katapusang water town ng Jiangnan" width="100%" /></a>
+</p>
 
-<a href="../images/screenshots/nodeMenu.png"><img src="../images/screenshots/nodeMenu.png" alt="Toonflow · Menu ng node at pagpapangkat" width="80%" /></a><br /><sub>Menu ng node at pagpapangkat</sub>
+<table>
+  <tr>
+    <td width="50%"><a href="../images/screenshots/trumanMapAerial.webp"><img src="../images/screenshots/trumanMapAerial.webp" alt="Toonflow · Walang-katapusang water town ng Jiangnan" width="100%" /></a></td>
+    <td width="50%"><a href="../images/screenshots/trumanMapTemple.webp"><img src="../images/screenshots/trumanMapTemple.webp" alt="Toonflow · Walang-katapusang water town ng Jiangnan" width="100%" /></a></td>
+  </tr>
+</table>
 
-<a href="../images/screenshots/pluginMarket.png"><img src="../images/screenshots/pluginMarket.png" alt="Toonflow · Pamilihan ng mga Plugin" width="80%" /></a><br /><sub>Pamilihan ng mga Plugin</sub>
+### Tampok 3 | 64 handang set + 80,000+ asset
 
-</div>
+<table>
+  <tr>
+    <td width="50%"><a href="../images/screenshots/trumanMapSets.webp"><img src="../images/screenshots/trumanMapSets.webp" alt="Toonflow · 64 handang set + 80,000+ asset" width="100%" /></a></td>
+    <td width="50%"><a href="../images/screenshots/trumanMapAssets.webp"><img src="../images/screenshots/trumanMapAssets.webp" alt="Toonflow · 64 handang set + 80,000+ asset" width="100%" /></a></td>
+  </tr>
+</table>
+
+### Tampok 4 | Panahon, oras at lupain sa isang click
+
+<table>
+  <tr>
+    <td width="50%"><a href="../images/screenshots/trumanMapRain.webp"><img src="../images/screenshots/trumanMapRain.webp" alt="Toonflow · Panahon, oras at lupain sa isang click" width="100%" /></a></td>
+    <td width="50%"><a href="../images/screenshots/trumanMapBrush.webp"><img src="../images/screenshots/trumanMapBrush.webp" alt="Toonflow · Panahon, oras at lupain sa isang click" width="100%" /></a></td>
+  </tr>
+  <tr>
+    <td width="50%"><a href="../images/screenshots/trumanMapWorld.webp"><img src="../images/screenshots/trumanMapWorld.webp" alt="Toonflow · Panahon, oras at lupain sa isang click" width="100%" /></a></td>
+    <td width="50%"><a href="../images/screenshots/trumanMapHome.webp"><img src="../images/screenshots/trumanMapHome.webp" alt="Toonflow · Panahon, oras at lupain sa isang click" width="100%" /></a></td>
+  </tr>
+</table>
+
+### Tampok 5 | I-export ang previs diretso sa video
+
+Storyboard, four-view sheet, previs video, animatic at shot list, ibinabalik sa canvas sa isang click.
+
+### Tampok 6 | Walang-hanggang canvas + AI assistant
+
+<table>
+  <tr>
+    <td width="50%"><a href="../images/screenshots/canvasNodeMenu.webp"><img src="../images/screenshots/canvasNodeMenu.webp" alt="Toonflow · Walang-hanggang canvas + AI assistant" width="100%" /></a></td>
+    <td width="50%"><a href="../images/screenshots/canvasAgent.webp"><img src="../images/screenshots/canvasAgent.webp" alt="Toonflow · Walang-hanggang canvas + AI assistant" width="100%" /></a></td>
+  </tr>
+</table>
+
+### Tampok 7 | Video mula sa maraming reference
+
+<p align="center">
+  <a href="../images/screenshots/videoGenerationNode.webp"><img src="../images/screenshots/videoGenerationNode.webp" alt="Toonflow · Video mula sa maraming reference" width="100%" /></a>
+</p>
+
+### Tampok 8 | Mga script document at workspace
+
+<p align="center">
+  <a href="../images/screenshots/canvasDocument.webp"><img src="../images/screenshots/canvasDocument.webp" alt="Toonflow · Mga script document at workspace" width="100%" /></a>
+</p>
+
+### Tampok 9 | Home at asset library
+
+<table>
+  <tr>
+    <td width="50%"><a href="../images/screenshots/home.webp"><img src="../images/screenshots/home.webp" alt="Toonflow · Home at asset library" width="100%" /></a></td>
+    <td width="50%"><a href="../images/screenshots/assetLibrary.webp"><img src="../images/screenshots/assetLibrary.webp" alt="Toonflow · Home at asset library" width="100%" /></a></td>
+  </tr>
+</table>
+
+### Tampok 10 | Plugin market
+
+Higit pang plugin sa [web plugin market](https://api.toonflow.net/console/plugIn).
+
+<p align="center">
+  <a href="../images/screenshots/pluginMarket.webp"><img src="../images/screenshots/pluginMarket.webp" alt="Toonflow · Plugin market" width="100%" /></a>
+</p>
 
 ---
 
@@ -299,7 +399,7 @@ Para sa iba pang tagubilin, tingnan ang [Gabay sa Paggamit](https://qcn7xdsqgc4z
 
 ### 4.2 Pag-install gamit ang Docker
 
-I-install muna ang Git, [Docker Engine](https://docs.docker.com/engine/install/), at Docker Compose. Sa Windows at macOS, maaaring gamitin ang Docker Desktop sa Linux container mode. Kasama sa repository ang [Dockerfile](../../Dockerfile), [configuration ng Compose](../../compose.yaml), at [mga hindi isinasama sa build](../../.dockerignore). Ginagamit ang Bun 1.4.3 sa pagbuo ng image, at kasama na ang FFmpeg.
+I-install muna ang Git, [Docker Engine](https://docs.docker.com/engine/install/), at Docker Compose. Sa Windows at macOS, maaaring gamitin ang Docker Desktop sa Linux container mode. Kasama sa repository ang [Dockerfile](../../Dockerfile), [configuration ng Compose](../../compose.yaml), at [mga hindi isinasama sa build](../../.dockerignore). Ginagamit ang Bun 1.4.5 sa pagbuo ng image, at kasama na ang FFmpeg.
 
 <details>
 <summary><strong>Tingnan ang mga hakbang sa pag-install gamit ang Docker</strong></summary>
@@ -343,7 +443,7 @@ docker compose start
 
 ### 4.3 Pag-install sa Server
 
-Gamitin ang paraang ito upang direktang patakbuhin ang Web at Server sa isang Linux server. Ang halimbawa sa ibaba ay para sa Ubuntu / Debian at sa itinakdang bersyon ng proyekto na [Bun 1.4.3](https://bun.sh/docs/installation).
+Gamitin ang paraang ito upang direktang patakbuhin ang Web at Server sa isang Linux server. Ang halimbawa sa ibaba ay para sa Ubuntu / Debian at sa itinakdang bersyon ng proyekto na [Bun 1.4.5](https://bun.sh/docs/installation).
 
 <details>
 <summary><strong>Tingnan ang mga hakbang sa pag-install sa server</strong></summary>
@@ -353,7 +453,7 @@ I-install ang runtime environment:
 ```sh
 sudo apt-get update
 sudo apt-get install -y git curl unzip ffmpeg
-curl -fsSL https://bun.com/install | bash -s "bun-v1.4.3"
+curl -fsSL https://bun.com/install | bash -s "bun-v1.4.5"
 export PATH="$HOME/.bun/bin:$PATH"
 bun --version
 ```
@@ -394,19 +494,38 @@ Nagbibigay ang katuwang naming [AI Galaxy (智星云)](https://www.ai-galaxy.com
 
 ## 5. 🎬 Halimbawang Gawa
 
+<a id="works"></a>
+
+### Mga Hit na Drama sa Hongguo
+
+🔥 Ang mga short drama na binuo batay sa Toonflow ay umabot na sa milyon-milyon, sampu-sampung milyon, at higit 100 milyong views sa Hongguo.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/71164bdf-6abe-42d1-b38f-efd270056033" alt="Short drama na 《悍妻进门，扶起一屋软骨头》 na binuo batay sa Toonflow: 3.5 bilyong views sa Hongguo, 5 bilyon sa lahat ng platform" width="100%" />
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/2f94bc21-c261-4933-903f-7c7150defb6f" alt="Mga poster ng short drama na binuo batay sa Toonflow na may milyon-milyon hanggang higit 100 milyong views sa Hongguo" width="100%" />
+</p>
+
+### Mga commercial
+
+<table>
+  <tr>
+    <td width="50%"><video src="https://github.com/user-attachments/assets/fccf8b46-b8ec-46cb-9574-9273cd1ee9e4" controls width="100%"></video></td>
+    <td width="50%"><video src="https://github.com/user-attachments/assets/b345905e-601f-43be-83a5-305f97a29e44" controls width="100%"></video></td>
+  </tr>
+  <tr>
+    <td width="50%"><video src="https://github.com/user-attachments/assets/fc5880aa-6b9c-4717-af0e-e51f15c4fdc6" controls width="100%"></video></td>
+    <td width="50%"><video src="https://github.com/user-attachments/assets/0816e794-f07d-4bc3-89cd-69c67566c3a6" controls width="100%"></video></td>
+  </tr>
+</table>
+
+### Halimbawang short drama
+
 https://github.com/user-attachments/assets/2d9fddac-dfdf-4640-b030-b09d7f7287e9
 
-### Detalye ng Produksyon
-
-| Item | Naitala sa orihinal na repository |
-| --- | --- |
-| Oras ng paggawa at haba ng video | Humigit-kumulang 2 oras na paggawa para sa video na halos 2 minuto ang haba. |
-| Modelo ng video | Seedance 2.0 |
-| Modelo ng larawan | GPT Image 2 |
-| Modelo ng wika | Claude Opus 4.6 |
-| Gastos sa API ng modelo | Humigit-kumulang ¥130 CNY (Chinese yuan): mga ¥10 para sa wika, ¥120 para sa video, at mas mababa sa ¥1 para sa mga larawan. |
-
-Ang mga halagang ito ay naitala para sa halimbawang ito at ibinibigay bilang sanggunian lamang. Nakadepende ang aktuwal na gastos sa serbisyo ng modelo, bilang ng pagbuo, at mga parameter. Ang demo video ay isang compressed na bersyon sa 480p.
+Ang demo video ay naka-compress na 480p na bersyon.
 
 ---
 

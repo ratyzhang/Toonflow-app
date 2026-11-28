@@ -90,7 +90,7 @@
 </p>
 <p align="center">
   <img src="https://ziadoua.github.io/m3-Markdown-Badges/badges/TypeScript/typescript2.svg" alt="TypeScript" height="28" />&nbsp;
-  <img src="https://img.shields.io/badge/Bun-1.4.3-14151A?style=for-the-badge&logo=bun&logoColor=white" alt="Bun 1.4.3" />&nbsp;
+  <img src="https://img.shields.io/badge/Bun-1.4.5-14151A?style=for-the-badge&logo=bun&logoColor=white" alt="Bun 1.4.5" />&nbsp;
   <img src="https://img.shields.io/badge/Vue-3-42B883?style=for-the-badge&logo=vuedotjs&logoColor=white" alt="Vue 3" />&nbsp;
   <img src="https://img.shields.io/badge/Desktop-Electrobun-8257E5?style=for-the-badge" alt="Electrobun" />
 </p>
@@ -154,6 +154,15 @@
   <a href="https://api.toonflow.net/">官方模型平台</a>
 </p>
 
+<p align="center">
+  📺 <a href="https://www.bilibili.com/video/BV1hbpb6xETF">產品介紹影片</a> ·
+  <a href="https://www.bilibili.com/video/BV1z4sS6NEA3">白模預演示範影片</a>
+</p>
+
+<p align="center">🔥 基於 Toonflow 打造的短劇已在紅果收穫百萬、千萬到破億播放。<a href="#works">看作品</a></p>
+
+https://github.com/user-attachments/assets/56d81114-7521-454c-9ec9-972567eddda9
+
 ---
 
 ## 1. 💛 贊助與支持
@@ -181,7 +190,13 @@
       <br /><br />
       <sub>🎁 透過<a href="https://www.compshare.cn/video-studio?ytag=GPU_YY_YX_git_toonflow">專屬連結註冊</a>，即可獲得免費人民幣 5 元平台體驗金！</sub>
     </td>
-    <td width="50%" valign="top"></td>
+    <td width="50%" valign="top">
+      <a href="https://weimeta.cn/console/invite/accept?aff=INV202611191734123p9JeY"><img src="../images/sponsors/weimeta.svg" alt="唯元智創（WEIMETA AI）" height="28" valign="middle" /> <strong>唯元智創（WEIMETA AI）</strong></a>
+      <br />
+      <sub>唯元智創提供高性價比 AI 文字、圖像與影片生成服務，聚合 DeepSeek、GLM、Kimi、Seedream、Seedance、Wan、MiniMax H3 等主流模型，支援文生圖、圖生圖、文生影片、圖生影片。提供統一 API 接入，支援多模型靈活呼叫，滿足企業級 AI 內容創作需求。平台採用企業級資料加密傳輸與多租戶隔離技術，通過等保三級安全測評，保障企業資料安全與隱私。</sub>
+      <br /><br />
+      <sub>🎁 透過<a href="https://weimeta.cn/console/invite/accept?aff=INV202611191734123p9JeY">專屬連結註冊</a>，即可體驗 WEIMETA AI 多模態模型服務，限時儲值 100 送 15。商務洽談請加微信：WeiMeta_AI666</sub>
+    </td>
   </tr>
 </table>
 
@@ -200,17 +215,28 @@
 
 ## 2. 🌟 亮點
 
-Toonflow 是面向短劇、動態漫畫與短影片製作的開源 AI 創作平台，將劇本、素材與影片片段整合到同一張無限畫布。
-
-| 功能 | 說明 |
+| 能力 | 說明 |
 | --- | --- |
-| 🏠 **本機部署** | 專案與素材儲存在自己的裝置或伺服器，支援桌面、Android、Docker 與伺服器部署。 |
-| 🖼️ **無限畫布** | 在同一張畫布中組織劇本、角色、場景與影片片段。 |
-| 🔌 **MCP** | 透過 MCP 連接外部工具與服務。 |
-| 🧩 **外掛市集** | 透過[外掛市集](https://api.toonflow.net/console/plugIn)擴充節點、工具與創作功能。 |
-| 🤖 **開放 Agent** | 開放提示詞、工具與 A2A，支援自訂 Agent 行為及外部協作。 |
-| 🔧 **自由串接模型** | 設定第三方 API，也可串接本機 ComfyUI 和 LLM。 |
-| 🌐 **多語言支援** | 支援 22 種介面語言。 |
+| 🎬 **白模預演** | 貼上劇本，一鍵 3D 搭景、分鏡、排走位。 |
+| 🖼️ **無限畫布** | 劇本、角色、場景、影片片段連線複用。 |
+| 🎥 **AI 影片生成** | @ 引用資產，按鏡頭出片。 |
+| 🤖 **AI 助手** | 直接讀寫畫布，支援 MCP 與 A2A。 |
+| 🔧 **自由接入模型** | 線上供應商、第三方 API、本地大模型、ComfyUI。 |
+| 🧩 **外掛市場** | 節點、工具、技能一鍵安裝。 |
+| 🏠 **本地部署** | Windows、macOS、Linux、Android、Docker。 |
+| 🌐 **多語言** | 22 種介面語言。 |
+
+**創作流程**: 劇本分鏡 → 角色與場景 → 白模預演 → 按鏡頭生成影片 → 剪輯下載。
+
+### 常見問題
+
+**Toonflow 是什麼？** 開源的 AI 短劇、AI 漫劇與 AI 影片創作平台。
+
+**免費嗎？** MIT 開源，可免費自行部署；第三方模型 API 可能收費。
+
+**支援哪些模型？** 內建 Seedance、Seedream、MiniMax、Wan 等，也能接第三方 API、本地大模型和 ComfyUI，詳見[使用教學](https://qcn7xdsqgc4z.feishu.cn/docx/RXFqdgR2Xo0dXZxGfd0cZCGgnwf)。
+
+**支援哪些系統？** Windows、macOS、Linux、Android，以及 Docker 和伺服器部署。
 
 <a id="languages"></a>
 
@@ -220,31 +246,105 @@ Toonflow 是面向短劇、動態漫畫與短影片製作的開源 AI 創作平�
 
 ---
 
-## 3. 📸 螢幕截圖
+## 3. 📸 十大看點
 
-<div align="center">
+<a id="trumanmap"></a>
 
-<a href="../images/screenshots/projectHome.png"><img src="../images/screenshots/projectHome.png" alt="Toonflow 專案首頁與靈感創作" width="80%" /></a><br /><sub>專案首頁與靈感創作</sub>
+### 看點 1｜貼上劇本，一鍵 3D 預演
 
-<a href="../images/screenshots/quickStart.png"><img src="../images/screenshots/quickStart.png" alt="Toonflow 首次啟動與快速設定" width="80%" /></a><br /><sub>首次啟動與快速設定</sub>
+按台詞自動分鏡、排走位，監看窗即時出畫面和字幕。 📺 [看示範影片](https://www.bilibili.com/video/BV1z4sS6NEA3)
 
-<a href="../images/screenshots/canvasDark.png"><img src="../images/screenshots/canvasDark.png" alt="Toonflow 深色主題畫布與 AI 助手" width="80%" /></a><br /><sub>創作畫布 · 深色主題</sub>
+https://github.com/user-attachments/assets/bb2f7bfe-46de-44ff-b3b3-95379f9d4b20
 
-<a href="../images/screenshots/canvasLight.png"><img src="../images/screenshots/canvasLight.png" alt="Toonflow 淺色主題畫布與 AI 助手" width="80%" /></a><br /><sub>創作畫布 · 淺色主題</sub>
+<p align="center">
+  <a href="../images/screenshots/trumanMapTimeline.webp"><img src="../images/screenshots/trumanMapTimeline.webp" alt="Toonflow · 貼上劇本，一鍵 3D 預演" width="100%" /></a>
+</p>
 
-<a href="../images/screenshots/assetCanvas.png"><img src="../images/screenshots/assetCanvas.png" alt="Toonflow 角色、場景與道具素材畫布" width="80%" /></a><br /><sub>角色、場景與道具素材</sub>
+<table>
+  <tr>
+    <td width="50%"><a href="../images/screenshots/trumanMapShot.webp"><img src="../images/screenshots/trumanMapShot.webp" alt="Toonflow · 貼上劇本，一鍵 3D 預演" width="100%" /></a></td>
+    <td width="50%"><a href="../images/screenshots/trumanMapStreet.webp"><img src="../images/screenshots/trumanMapStreet.webp" alt="Toonflow · 貼上劇本，一鍵 3D 預演" width="100%" /></a></td>
+  </tr>
+</table>
 
-<a href="../images/screenshots/directorStudio.png"><img src="../images/screenshots/directorStudio.png" alt="Toonflow 3D 導演台與鏡頭預演" width="80%" /></a><br /><sub>3D 導演台與鏡頭預演</sub>
+### 看點 2｜一座看不到邊的江南古鎮
 
-<a href="../images/screenshots/characterImageGeneration.png"><img src="../images/screenshots/characterImageGeneration.png" alt="Toonflow 角色三視圖圖片生成" width="80%" /></a><br /><sub>角色三視圖與圖片生成</sub>
+城牆、街巷、水鄉、寺廟、遠山，1500 多件物體。
 
-<a href="../images/screenshots/videoGeneration.png"><img src="../images/screenshots/videoGeneration.png" alt="Toonflow 多參考素材影片生成" width="80%" /></a><br /><sub>多參考素材影片生成</sub>
+<p align="center">
+  <a href="../images/screenshots/trumanMapTown.webp"><img src="../images/screenshots/trumanMapTown.webp" alt="Toonflow · 一座看不到邊的江南古鎮" width="100%" /></a>
+</p>
 
-<a href="../images/screenshots/nodeMenu.png"><img src="../images/screenshots/nodeMenu.png" alt="Toonflow 節點選單與群組操作" width="80%" /></a><br /><sub>節點選單與群組操作</sub>
+<table>
+  <tr>
+    <td width="50%"><a href="../images/screenshots/trumanMapAerial.webp"><img src="../images/screenshots/trumanMapAerial.webp" alt="Toonflow · 一座看不到邊的江南古鎮" width="100%" /></a></td>
+    <td width="50%"><a href="../images/screenshots/trumanMapTemple.webp"><img src="../images/screenshots/trumanMapTemple.webp" alt="Toonflow · 一座看不到邊的江南古鎮" width="100%" /></a></td>
+  </tr>
+</table>
 
-<a href="../images/screenshots/pluginMarket.png"><img src="../images/screenshots/pluginMarket.png" alt="Toonflow 外掛市集" width="80%" /></a><br /><sub>外掛市集</sub>
+### 看點 3｜64 套整套景 + 8 萬多件素材
 
-</div>
+<table>
+  <tr>
+    <td width="50%"><a href="../images/screenshots/trumanMapSets.webp"><img src="../images/screenshots/trumanMapSets.webp" alt="Toonflow · 64 套整套景 + 8 萬多件素材" width="100%" /></a></td>
+    <td width="50%"><a href="../images/screenshots/trumanMapAssets.webp"><img src="../images/screenshots/trumanMapAssets.webp" alt="Toonflow · 64 套整套景 + 8 萬多件素材" width="100%" /></a></td>
+  </tr>
+</table>
+
+### 看點 4｜天氣、時間、地形隨手改
+
+<table>
+  <tr>
+    <td width="50%"><a href="../images/screenshots/trumanMapRain.webp"><img src="../images/screenshots/trumanMapRain.webp" alt="Toonflow · 天氣、時間、地形隨手改" width="100%" /></a></td>
+    <td width="50%"><a href="../images/screenshots/trumanMapBrush.webp"><img src="../images/screenshots/trumanMapBrush.webp" alt="Toonflow · 天氣、時間、地形隨手改" width="100%" /></a></td>
+  </tr>
+  <tr>
+    <td width="50%"><a href="../images/screenshots/trumanMapWorld.webp"><img src="../images/screenshots/trumanMapWorld.webp" alt="Toonflow · 天氣、時間、地形隨手改" width="100%" /></a></td>
+    <td width="50%"><a href="../images/screenshots/trumanMapHome.webp"><img src="../images/screenshots/trumanMapHome.webp" alt="Toonflow · 天氣、時間、地形隨手改" width="100%" /></a></td>
+  </tr>
+</table>
+
+### 看點 5｜預演直接匯出給影片生成
+
+分鏡圖、四視圖、白模影片、預演小樣、鏡頭表，一鍵匯回畫布。
+
+### 看點 6｜無限畫布 + AI 助手
+
+<table>
+  <tr>
+    <td width="50%"><a href="../images/screenshots/canvasNodeMenu.webp"><img src="../images/screenshots/canvasNodeMenu.webp" alt="Toonflow · 無限畫布 + AI 助手" width="100%" /></a></td>
+    <td width="50%"><a href="../images/screenshots/canvasAgent.webp"><img src="../images/screenshots/canvasAgent.webp" alt="Toonflow · 無限畫布 + AI 助手" width="100%" /></a></td>
+  </tr>
+</table>
+
+### 看點 7｜多參考影片生成
+
+<p align="center">
+  <a href="../images/screenshots/videoGenerationNode.webp"><img src="../images/screenshots/videoGenerationNode.webp" alt="Toonflow · 多參考影片生成" width="100%" /></a>
+</p>
+
+### 看點 8｜劇本文件與工作區
+
+<p align="center">
+  <a href="../images/screenshots/canvasDocument.webp"><img src="../images/screenshots/canvasDocument.webp" alt="Toonflow · 劇本文件與工作區" width="100%" /></a>
+</p>
+
+### 看點 9｜首頁與素材庫
+
+<table>
+  <tr>
+    <td width="50%"><a href="../images/screenshots/home.webp"><img src="../images/screenshots/home.webp" alt="Toonflow · 首頁與素材庫" width="100%" /></a></td>
+    <td width="50%"><a href="../images/screenshots/assetLibrary.webp"><img src="../images/screenshots/assetLibrary.webp" alt="Toonflow · 首頁與素材庫" width="100%" /></a></td>
+  </tr>
+</table>
+
+### 看點 10｜外掛市場
+
+更多外掛見[網頁版外掛市場](https://api.toonflow.net/console/plugIn)。
+
+<p align="center">
+  <a href="../images/screenshots/pluginMarket.webp"><img src="../images/screenshots/pluginMarket.webp" alt="Toonflow · 外掛市場" width="100%" /></a>
+</p>
 
 ---
 
@@ -299,7 +399,7 @@ sudo spctl --master-disable
 
 ### 4.2 Docker 安裝
 
-先安裝 Git、[Docker Engine](https://docs.docker.com/engine/install/) 和 Docker Compose；Windows / macOS 可使用 Docker Desktop 的 Linux 容器模式。儲存庫提供 [Dockerfile](../../Dockerfile)、[Compose 設定](../../compose.yaml) 和[建置排除規則](../../.dockerignore)，以 Bun 1.4.3 建置，映像檔內含 FFmpeg。
+先安裝 Git、[Docker Engine](https://docs.docker.com/engine/install/) 和 Docker Compose；Windows / macOS 可使用 Docker Desktop 的 Linux 容器模式。儲存庫提供 [Dockerfile](../../Dockerfile)、[Compose 設定](../../compose.yaml) 和[建置排除規則](../../.dockerignore)，以 Bun 1.4.5 建置，映像檔內含 FFmpeg。
 
 <details>
 <summary><strong>展開 Docker 安裝步驟</strong></summary>
@@ -343,7 +443,7 @@ docker compose start
 
 ### 4.3 伺服器安裝
 
-適用於直接在 Linux 伺服器上執行 Web 與 Server。以下以 Ubuntu / Debian 為例，使用專案指定的 [Bun 1.4.3](https://bun.sh/docs/installation)。
+適用於直接在 Linux 伺服器上執行 Web 與 Server。以下以 Ubuntu / Debian 為例，使用專案指定的 [Bun 1.4.5](https://bun.sh/docs/installation)。
 
 <details>
 <summary><strong>展開伺服器安裝步驟</strong></summary>
@@ -353,7 +453,7 @@ docker compose start
 ```sh
 sudo apt-get update
 sudo apt-get install -y git curl unzip ffmpeg
-curl -fsSL https://bun.com/install | bash -s "bun-v1.4.3"
+curl -fsSL https://bun.com/install | bash -s "bun-v1.4.5"
 export PATH="$HOME/.bun/bin:$PATH"
 bun --version
 ```
@@ -394,19 +494,38 @@ bun run start:server
 
 ## 5. 🎬 作品範例
 
+<a id="works"></a>
+
+### 紅果熱播作品
+
+🔥 基於 Toonflow 打造的短劇已在紅果收穫百萬、千萬到破億播放。
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/71164bdf-6abe-42d1-b38f-efd270056033" alt="基於 Toonflow 打造的短劇《悍妻进门，扶起一屋软骨头》：紅果播放 35 億，全網播放 50 億" width="100%" />
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/2f94bc21-c261-4933-903f-7c7150defb6f" alt="基於 Toonflow 打造、在紅果獲得百萬到破億播放的短劇作品海報牆" width="100%" />
+</p>
+
+### 廣告片
+
+<table>
+  <tr>
+    <td width="50%"><video src="https://github.com/user-attachments/assets/fccf8b46-b8ec-46cb-9574-9273cd1ee9e4" controls width="100%"></video></td>
+    <td width="50%"><video src="https://github.com/user-attachments/assets/b345905e-601f-43be-83a5-305f97a29e44" controls width="100%"></video></td>
+  </tr>
+  <tr>
+    <td width="50%"><video src="https://github.com/user-attachments/assets/fc5880aa-6b9c-4717-af0e-e51f15c4fdc6" controls width="100%"></video></td>
+    <td width="50%"><video src="https://github.com/user-attachments/assets/0816e794-f07d-4bc3-89cd-69c67566c3a6" controls width="100%"></video></td>
+  </tr>
+</table>
+
+### 短劇案例
+
 https://github.com/user-attachments/assets/2d9fddac-dfdf-4640-b030-b09d7f7287e9
 
-### 案例資訊
-
-| 項目 | 原儲存庫記錄 |
-| --- | --- |
-| 製作時間與成片 | 約 2 小時，成片約 2 分鐘。 |
-| 影片模型 | Seedance 2.0 |
-| 圖片模型 | GPT Image 2 |
-| 語言模型 | Claude Opus 4.6 |
-| 模型呼叫費用 | 約人民幣 ¥130，其中語言約 ¥10、影片約 ¥120、圖片不足 ¥1。 |
-
-費用為此案例的記錄，僅供參考，實際成本取決於模型服務、生成次數與參數。示範影片為壓縮後的 480p 版本。
+示範影片為壓縮後的 480p 版本。
 
 ---
 

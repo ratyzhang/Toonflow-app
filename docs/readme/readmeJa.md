@@ -90,7 +90,7 @@
 </p>
 <p align="center">
   <img src="https://ziadoua.github.io/m3-Markdown-Badges/badges/TypeScript/typescript2.svg" alt="TypeScript" height="28" />&nbsp;
-  <img src="https://img.shields.io/badge/Bun-1.4.3-14151A?style=for-the-badge&logo=bun&logoColor=white" alt="Bun 1.4.3" />&nbsp;
+  <img src="https://img.shields.io/badge/Bun-1.4.5-14151A?style=for-the-badge&logo=bun&logoColor=white" alt="Bun 1.4.5" />&nbsp;
   <img src="https://img.shields.io/badge/Vue-3-42B883?style=for-the-badge&logo=vuedotjs&logoColor=white" alt="Vue 3" />&nbsp;
   <img src="https://img.shields.io/badge/Desktop-Electrobun-8257E5?style=for-the-badge" alt="Electrobun" />
 </p>
@@ -154,6 +154,15 @@
   <a href="https://api.toonflow.net/">公式モデルプラットフォーム</a>
 </p>
 
+<p align="center">
+  📺 <a href="https://www.bilibili.com/video/BV1hbpb6xETF">製品紹介動画</a> ·
+  <a href="https://www.bilibili.com/video/BV1z4sS6NEA3">ホワイトモデル・プレビズのデモ</a>
+</p>
+
+<p align="center">🔥 Toonflow をベースに制作されたショートドラマが、紅果で数百万から数千万、1 億回超えの再生を記録しています。<a href="#works">作品を見る</a></p>
+
+https://github.com/user-attachments/assets/56d81114-7521-454c-9ec9-972567eddda9
+
 ---
 
 ## 1. 💛 スポンサーと支援
@@ -181,7 +190,13 @@ Toonflow オープンソースプロジェクトをご支援くださるパー�
       <br /><br />
       <sub>🎁 <a href="https://www.compshare.cn/video-studio?ytag=GPU_YY_YX_git_toonflow">専用リンクから登録</a>すると、プラットフォームで使える 5 人民元分のお試しクレジットを無料で受け取れます！</sub>
     </td>
-    <td width="50%" valign="top"></td>
+    <td width="50%" valign="top">
+      <a href="https://weimeta.cn/console/invite/accept?aff=INV202611191734123p9JeY"><img src="../images/sponsors/weimeta.svg" alt="唯元智创（WEIMETA AI）" height="28" valign="middle" /> <strong>唯元智创（WEIMETA AI）</strong></a>
+      <br />
+      <sub>WEIMETA AI は、DeepSeek、GLM、Kimi、Seedream、Seedance、Wan、MiniMax H3 などの主要モデルを集約し、高コストパフォーマンスの AI テキスト・画像・動画生成サービスを提供しています。テキストから画像、画像から画像、テキストから動画、画像から動画に対応し、統一 API で複数モデルを柔軟に呼び出せるため、企業向け AI コンテンツ制作に適しています。企業レベルの暗号化通信とマルチテナント分離を採用し、中国の等級保護 3 級のセキュリティ評価に合格しています。</sub>
+      <br /><br />
+      <sub>🎁 <a href="https://weimeta.cn/console/invite/accept?aff=INV202611191734123p9JeY">専用リンクから登録</a>すると、WEIMETA AI のマルチモーダルモデルサービスを体験できます。期間限定で 100 人民元チャージごとに 15 人民元をプレゼント。商談は WeChat：WeiMeta_AI666 まで</sub>
+    </td>
   </tr>
 </table>
 
@@ -200,17 +215,28 @@ Toonflow オープンソースプロジェクトをご支援くださるパー�
 
 ## 2. 🌟 特長
 
-Toonflow はショートドラマ、モーションコミック、ショート動画の制作に向けたオープンソースの AI 制作プラットフォームです。脚本、素材、動画クリップを一つの無限キャンバスにまとめられます。
-
 | 機能 | 説明 |
 | --- | --- |
-| 🏠 **ローカル環境で運用** | プロジェクトと素材を自分のデバイスやサーバーに保存。デスクトップ、Android、Docker、サーバーへの導入に対応しています。 |
-| 🖼️ **無限キャンバス** | 同じキャンバス上で脚本、キャラクター、シーン、動画クリップを整理できます。 |
-| 🔌 **MCP** | MCP を通じて外部ツールやサービスに接続できます。 |
-| 🧩 **プラグインマーケット** | [プラグインマーケット](https://api.toonflow.net/console/plugIn)からノード、ツール、制作機能を追加できます。 |
-| 🤖 **オープンな Agent** | プロンプト、ツール、A2A のオープンな仕組みにより、Agent の動作のカスタマイズと外部連携に対応します。 |
-| 🔧 **モデルを自由に接続** | サードパーティーの API に加え、ローカルの ComfyUI や LLM も接続できます。 |
-| 🌐 **多言語対応** | 22の表示言語に対応。 |
+| 🎬 **ホワイトモデル・プレビズ** | 台本を貼るだけで 3D セット、絵コンテ、立ち位置を一括作成。 |
+| 🖼️ **無限キャンバス** | 台本・キャラクター・シーン・動画クリップをつないで再利用。 |
+| 🎥 **AI 動画生成** | アセットを @ で参照し、カットごとに生成。 |
+| 🤖 **AI アシスタント** | キャンバスを直接読み書き。MCP と A2A に対応。 |
+| 🔧 **モデルを自由に接続** | 内蔵プロバイダー、外部 API、ローカル LLM、ComfyUI。 |
+| 🧩 **プラグインマーケット** | ノード・ツール・スキルをワンクリック導入。 |
+| 🏠 **ローカル導入** | Windows、macOS、Linux、Android、Docker。 |
+| 🌐 **多言語** | 22 言語の UI。 |
+
+**制作フロー**: 台本・絵コンテ → キャラクターとシーン → 3D プレビズ → カットごとの動画生成 → 編集・ダウンロード。
+
+### よくある質問
+
+**Toonflow とは？** AI ショートドラマ、AI 漫画動画、AI 動画を作るオープンソースのプラットフォームです。
+
+**無料ですか？** MIT ライセンスで無料でセルフホストできます。外部モデル API は有料の場合があります。
+
+**対応モデルは？** Seedance、Seedream、MiniMax、Wan などを内蔵し、外部 API、ローカル LLM、ComfyUI も接続できます。詳しくは[使い方ガイド](https://qcn7xdsqgc4z.feishu.cn/docx/RXFqdgR2Xo0dXZxGfd0cZCGgnwf)へ。
+
+**対応 OS は？** Windows、macOS、Linux、Android、Docker とサーバー導入。
 
 <a id="languages"></a>
 
@@ -220,31 +246,105 @@ Toonflow はショートドラマ、モーションコミック、ショート�
 
 ---
 
-## 3. 📸 スクリーンショット
+## 3. 📸 10 の見どころ
 
-<div align="center">
+<a id="trumanmap"></a>
 
-<a href="../images/screenshots/projectHome.png"><img src="../images/screenshots/projectHome.png" alt="Toonflow プロジェクトホームとアイデアからの制作" width="80%" /></a><br /><sub>プロジェクトホームとアイデアからの制作</sub>
+### 見どころ 1｜台本を貼るだけで 3D プレビズ
 
-<a href="../images/screenshots/quickStart.png"><img src="../images/screenshots/quickStart.png" alt="Toonflow 初回起動とクイック設定" width="80%" /></a><br /><sub>初回起動とクイック設定</sub>
+台詞に合わせて自動でカット割りと立ち位置を作り、モニターに映像と字幕をリアルタイム表示。 📺 [デモ動画を見る](https://www.bilibili.com/video/BV1z4sS6NEA3)
 
-<a href="../images/screenshots/canvasDark.png"><img src="../images/screenshots/canvasDark.png" alt="Toonflow ダークテーマのキャンバスと AI アシスタント" width="80%" /></a><br /><sub>制作キャンバス · ダークテーマ</sub>
+https://github.com/user-attachments/assets/bb2f7bfe-46de-44ff-b3b3-95379f9d4b20
 
-<a href="../images/screenshots/canvasLight.png"><img src="../images/screenshots/canvasLight.png" alt="Toonflow ライトテーマのキャンバスと AI アシスタント" width="80%" /></a><br /><sub>制作キャンバス · ライトテーマ</sub>
+<p align="center">
+  <a href="../images/screenshots/trumanMapTimeline.webp"><img src="../images/screenshots/trumanMapTimeline.webp" alt="Toonflow · 台本を貼るだけで 3D プレビズ" width="100%" /></a>
+</p>
 
-<a href="../images/screenshots/assetCanvas.png"><img src="../images/screenshots/assetCanvas.png" alt="Toonflow キャラクター・シーン・小道具の素材キャンバス" width="80%" /></a><br /><sub>キャラクター・シーン・小道具の素材</sub>
+<table>
+  <tr>
+    <td width="50%"><a href="../images/screenshots/trumanMapShot.webp"><img src="../images/screenshots/trumanMapShot.webp" alt="Toonflow · 台本を貼るだけで 3D プレビズ" width="100%" /></a></td>
+    <td width="50%"><a href="../images/screenshots/trumanMapStreet.webp"><img src="../images/screenshots/trumanMapStreet.webp" alt="Toonflow · 台本を貼るだけで 3D プレビズ" width="100%" /></a></td>
+  </tr>
+</table>
 
-<a href="../images/screenshots/directorStudio.png"><img src="../images/screenshots/directorStudio.png" alt="Toonflow 3D 演出台とカメラショットのプレビュー" width="80%" /></a><br /><sub>3D 演出台とカメラショットのプレビュー</sub>
+### 見どころ 2｜果てしなく広がる江南の水郷
 
-<a href="../images/screenshots/characterImageGeneration.png"><img src="../images/screenshots/characterImageGeneration.png" alt="Toonflow キャラクター三面図の画像生成" width="80%" /></a><br /><sub>キャラクター三面図と画像生成</sub>
+城壁、街並み、水路、寺院、山々まで、1,500 点以上のオブジェクト。
 
-<a href="../images/screenshots/videoGeneration.png"><img src="../images/screenshots/videoGeneration.png" alt="Toonflow 複数の参考素材を使った動画生成" width="80%" /></a><br /><sub>複数の参考素材を使った動画生成</sub>
+<p align="center">
+  <a href="../images/screenshots/trumanMapTown.webp"><img src="../images/screenshots/trumanMapTown.webp" alt="Toonflow · 果てしなく広がる江南の水郷" width="100%" /></a>
+</p>
 
-<a href="../images/screenshots/nodeMenu.png"><img src="../images/screenshots/nodeMenu.png" alt="Toonflow ノードメニューとグループ操作" width="80%" /></a><br /><sub>ノードメニューとグループ操作</sub>
+<table>
+  <tr>
+    <td width="50%"><a href="../images/screenshots/trumanMapAerial.webp"><img src="../images/screenshots/trumanMapAerial.webp" alt="Toonflow · 果てしなく広がる江南の水郷" width="100%" /></a></td>
+    <td width="50%"><a href="../images/screenshots/trumanMapTemple.webp"><img src="../images/screenshots/trumanMapTemple.webp" alt="Toonflow · 果てしなく広がる江南の水郷" width="100%" /></a></td>
+  </tr>
+</table>
 
-<a href="../images/screenshots/pluginMarket.png"><img src="../images/screenshots/pluginMarket.png" alt="Toonflow プラグインマーケット" width="80%" /></a><br /><sub>プラグインマーケット</sub>
+### 見どころ 3｜64 種のセット + 8 万点超の素材
 
-</div>
+<table>
+  <tr>
+    <td width="50%"><a href="../images/screenshots/trumanMapSets.webp"><img src="../images/screenshots/trumanMapSets.webp" alt="Toonflow · 64 種のセット + 8 万点超の素材" width="100%" /></a></td>
+    <td width="50%"><a href="../images/screenshots/trumanMapAssets.webp"><img src="../images/screenshots/trumanMapAssets.webp" alt="Toonflow · 64 種のセット + 8 万点超の素材" width="100%" /></a></td>
+  </tr>
+</table>
+
+### 見どころ 4｜天気・時間・地形をワンクリックで
+
+<table>
+  <tr>
+    <td width="50%"><a href="../images/screenshots/trumanMapRain.webp"><img src="../images/screenshots/trumanMapRain.webp" alt="Toonflow · 天気・時間・地形をワンクリックで" width="100%" /></a></td>
+    <td width="50%"><a href="../images/screenshots/trumanMapBrush.webp"><img src="../images/screenshots/trumanMapBrush.webp" alt="Toonflow · 天気・時間・地形をワンクリックで" width="100%" /></a></td>
+  </tr>
+  <tr>
+    <td width="50%"><a href="../images/screenshots/trumanMapWorld.webp"><img src="../images/screenshots/trumanMapWorld.webp" alt="Toonflow · 天気・時間・地形をワンクリックで" width="100%" /></a></td>
+    <td width="50%"><a href="../images/screenshots/trumanMapHome.webp"><img src="../images/screenshots/trumanMapHome.webp" alt="Toonflow · 天気・時間・地形をワンクリックで" width="100%" /></a></td>
+  </tr>
+</table>
+
+### 見どころ 5｜プレビズをそのまま動画生成へ
+
+絵コンテ、四面図、ホワイトモデル動画、プレビズ、カット表をワンクリックでキャンバスへ。
+
+### 見どころ 6｜無限キャンバス + AI アシスタント
+
+<table>
+  <tr>
+    <td width="50%"><a href="../images/screenshots/canvasNodeMenu.webp"><img src="../images/screenshots/canvasNodeMenu.webp" alt="Toonflow · 無限キャンバス + AI アシスタント" width="100%" /></a></td>
+    <td width="50%"><a href="../images/screenshots/canvasAgent.webp"><img src="../images/screenshots/canvasAgent.webp" alt="Toonflow · 無限キャンバス + AI アシスタント" width="100%" /></a></td>
+  </tr>
+</table>
+
+### 見どころ 7｜複数参照の動画生成
+
+<p align="center">
+  <a href="../images/screenshots/videoGenerationNode.webp"><img src="../images/screenshots/videoGenerationNode.webp" alt="Toonflow · 複数参照の動画生成" width="100%" /></a>
+</p>
+
+### 見どころ 8｜台本ドキュメントとワークスペース
+
+<p align="center">
+  <a href="../images/screenshots/canvasDocument.webp"><img src="../images/screenshots/canvasDocument.webp" alt="Toonflow · 台本ドキュメントとワークスペース" width="100%" /></a>
+</p>
+
+### 見どころ 9｜ホームと素材ライブラリ
+
+<table>
+  <tr>
+    <td width="50%"><a href="../images/screenshots/home.webp"><img src="../images/screenshots/home.webp" alt="Toonflow · ホームと素材ライブラリ" width="100%" /></a></td>
+    <td width="50%"><a href="../images/screenshots/assetLibrary.webp"><img src="../images/screenshots/assetLibrary.webp" alt="Toonflow · ホームと素材ライブラリ" width="100%" /></a></td>
+  </tr>
+</table>
+
+### 見どころ 10｜プラグインマーケット
+
+その他のプラグインは[Web 版プラグインマーケット](https://api.toonflow.net/console/plugIn)へ。
+
+<p align="center">
+  <a href="../images/screenshots/pluginMarket.webp"><img src="../images/screenshots/pluginMarket.webp" alt="Toonflow · プラグインマーケット" width="100%" /></a>
+</p>
 
 ---
 
@@ -299,7 +399,7 @@ sudo spctl --master-disable
 
 ### 4.2 Docker でのインストール
 
-まず Git、[Docker Engine](https://docs.docker.com/engine/install/)、Docker Compose をインストールしてください。Windows / macOS では Docker Desktop の Linux コンテナモードを利用できます。リポジトリには [Dockerfile](../../Dockerfile)、[Compose 設定](../../compose.yaml)、[ビルド除外設定](../../.dockerignore)が含まれています。Bun 1.4.3 を使用してビルドし、イメージには FFmpeg も含まれます。
+まず Git、[Docker Engine](https://docs.docker.com/engine/install/)、Docker Compose をインストールしてください。Windows / macOS では Docker Desktop の Linux コンテナモードを利用できます。リポジトリには [Dockerfile](../../Dockerfile)、[Compose 設定](../../compose.yaml)、[ビルド除外設定](../../.dockerignore)が含まれています。Bun 1.4.5 を使用してビルドし、イメージには FFmpeg も含まれます。
 
 <details>
 <summary><strong>Docker のインストール手順を開く</strong></summary>
@@ -343,7 +443,7 @@ docker compose start
 
 ### 4.3 サーバーへのインストール
 
-Web と Server を Linux サーバー上で直接実行する場合の手順です。以下では Ubuntu / Debian を例に、プロジェクト指定の [Bun 1.4.3](https://bun.sh/docs/installation)を使用します。
+Web と Server を Linux サーバー上で直接実行する場合の手順です。以下では Ubuntu / Debian を例に、プロジェクト指定の [Bun 1.4.5](https://bun.sh/docs/installation)を使用します。
 
 <details>
 <summary><strong>サーバーへのインストール手順を開く</strong></summary>
@@ -353,7 +453,7 @@ Web と Server を Linux サーバー上で直接実行する場合の手順で�
 ```sh
 sudo apt-get update
 sudo apt-get install -y git curl unzip ffmpeg
-curl -fsSL https://bun.com/install | bash -s "bun-v1.4.3"
+curl -fsSL https://bun.com/install | bash -s "bun-v1.4.5"
 export PATH="$HOME/.bun/bin:$PATH"
 bun --version
 ```
@@ -394,19 +494,38 @@ bun run start:server
 
 ## 5. 🎬 制作事例
 
+<a id="works"></a>
+
+### 紅果のヒット作品
+
+🔥 Toonflow をベースに制作されたショートドラマが、紅果で数百万から数千万、1 億回超えの再生を記録しています。
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/71164bdf-6abe-42d1-b38f-efd270056033" alt="Toonflow をベースに制作したショートドラマ《悍妻进门，扶起一屋软骨头》：紅果で 35 億回、全プラットフォームで 50 億回再生" width="100%" />
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/2f94bc21-c261-4933-903f-7c7150defb6f" alt="Toonflow をベースに制作し、紅果で数百万〜1 億回超え再生のショートドラマ作品ポスター" width="100%" />
+</p>
+
+### 広告映像
+
+<table>
+  <tr>
+    <td width="50%"><video src="https://github.com/user-attachments/assets/fccf8b46-b8ec-46cb-9574-9273cd1ee9e4" controls width="100%"></video></td>
+    <td width="50%"><video src="https://github.com/user-attachments/assets/b345905e-601f-43be-83a5-305f97a29e44" controls width="100%"></video></td>
+  </tr>
+  <tr>
+    <td width="50%"><video src="https://github.com/user-attachments/assets/fc5880aa-6b9c-4717-af0e-e51f15c4fdc6" controls width="100%"></video></td>
+    <td width="50%"><video src="https://github.com/user-attachments/assets/0816e794-f07d-4bc3-89cd-69c67566c3a6" controls width="100%"></video></td>
+  </tr>
+</table>
+
+### ショートドラマ事例
+
 https://github.com/user-attachments/assets/2d9fddac-dfdf-4640-b030-b09d7f7287e9
 
-### 事例の詳細
-
-| 項目 | 元のリポジトリに記録された内容 |
-| --- | --- |
-| 制作時間と完成動画 | 約 2 時間で制作、完成動画は約 2 分。 |
-| 動画モデル | Seedance 2.0 |
-| 画像モデル | GPT Image 2 |
-| 言語モデル | Claude Opus 4.6 |
-| モデル利用料金 | 約 ¥130（人民元）。内訳は言語約 ¥10、動画約 ¥120、画像 ¥1 未満。 |
-
-費用はこの事例の記録であり、参考値です。実際の費用はモデルサービス、生成回数、パラメーターによって変わります。デモ動画は圧縮済みの 480p 版です。
+デモ動画は 480p に圧縮したものです。
 
 ---
 

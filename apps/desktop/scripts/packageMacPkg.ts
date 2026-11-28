@@ -2,6 +2,7 @@ import { chmodSync, copyFileSync, lstatSync, mkdirSync, mkdtempSync, realpathSyn
 import { file, write } from "@toonflow/file/bun";
 import { join, resolve } from "node:path";
 import desktopConfig from "../../../electrobun.config";
+import readMacPackageIdentity from "../src/update/macPackageIdentity";
 
 if (process.platform !== "darwin" || !["x64", "arm64"].includes(process.arch)) {
   throw new Error("macOS 安装包需要在 Mac x64/arm64 环境构建。");
@@ -15,14 +16,25 @@ async function run(command: string[]) {
   console.log(`完成 macOS 打包命令：${command[0]}`);
 }
 
+async function verifyPackageIdentity(path: string, identity: string) {
+  try {
+    if (await readMacPackageIdentity(path) !== identity) throw new Error("读取到的更新标识与本次构建不一致。");
+  } catch (cause) {
+    const listing = Bun.spawnSync(["/usr/bin/xar", "-tf", path], { stdout: "pipe", stderr: "pipe", timeout: 120000 });
+    throw new Error(`macOS 安装包中的更新标识无效：${path}\nxar 条目：\n${listing.stdout.toString()}${listing.stderr.toString()}`, { cause });
+  }
+}
+
 const projectDir = realpathSync(resolve(import.meta.dirname, "../../.."));
 const artifactDir = resolve(projectDir, desktopConfig.build.artifactFolder);
 const version = desktopConfig.app.version;
 if (!/^\d+\.\d+\.\d+$/.test(version)) throw new Error("macOS 版本号必须为 X.Y.Z。");
 const prefix = `stable-macos-${process.arch}`;
-const manifest = await file(join(artifactDir, `${prefix}-update.json`)).json();
+const manifestPath = join(artifactDir, `${prefix}-update.json`);
+const manifest = await file(manifestPath).json();
 if (manifest.version !== version || manifest.platform !== "macos" || manifest.arch !== process.arch
-  || manifest.identifier !== desktopConfig.app.identifier || manifest.channel !== "stable") {
+  || manifest.identifier !== desktopConfig.app.identifier || manifest.channel !== "stable"
+  || typeof manifest.hash !== "string" || !/^[a-zA-Z0-9]{1,64}$/.test(manifest.hash)) {
   throw new Error("macOS 构建产物的版本、平台或应用标识不一致，请重新构建。");
 }
 const archiveName = manifest.artifact?.file;
@@ -61,7 +73,8 @@ try {
     if (!entry.isFile() || entry.isSymbolicLink()) throw new Error(`macOS 应用归档缺少有效文件：${path}`);
   }
   const appVersion = await file(join(resources, "version.json")).json();
-  if (appVersion.version !== version || appVersion.hash !== manifest.hash) throw new Error("macOS 应用与更新清单不一致。");
+  if (appVersion.version !== version || appVersion.hash !== manifest.hash || appVersion.identifier !== manifest.identifier
+    || appVersion.channel !== manifest.channel) throw new Error("macOS 应用与更新清单不一致。");
 
   const externalRuntime = process.env.TOONFLOW_EXTERNAL_RUNTIME === "1";
   if (externalRuntime) {
@@ -83,7 +96,7 @@ try {
   }
 
   const output = join(stagingDir, outputName);
-  let component: string | undefined;
+  const component = join(stagingDir, "toonflow.pkg");
   if (externalRuntime) {
     const scriptsDir = join(stagingDir, "scripts");
     mkdirSync(scriptsDir);
@@ -119,16 +132,31 @@ trap 'exit 2' HUP INT TERM
     application.BundleInstallScriptTimeout = 3600;
     writeAtomicSync(componentsPath, JSON.stringify(components));
     await run(["/usr/bin/plutil", "-convert", "xml1", componentsPath]);
-    component = join(stagingDir, "toonflow.pkg");
     await run(["/usr/bin/pkgbuild", "--root", applicationDir, "--component-plist", componentsPath, "--scripts", scriptsDir,
       "--identifier", desktopConfig.app.identifier, "--version", version, "--install-location", "/Applications",
       "--compression", "latest", "--min-os-version", "14.0", component]);
+  } else {
+    await run(["/usr/bin/pkgbuild", "--component", appPath, "--install-location", "/Applications",
+      "--identifier", desktopConfig.app.identifier, "--version", version, component]);
   }
+  const identity = JSON.stringify({
+    identifier: appVersion.identifier, channel: appVersion.channel, version, hash: appVersion.hash, platform: "macos", arch: process.arch,
+  });
+  const distribution = join(stagingDir, "distribution.xml");
+  await run(["/usr/bin/productbuild", "--synthesize", "--package", component, distribution]);
   // ACT: 直接使用系统 Installer 的继续、安装、完成向导，不再生成拖拽 DMG 或兼容脚本。
-  const unsignedOutput = signed ? join(stagingDir, "unsigned.pkg") : output;
+  const productArchive = join(stagingDir, "product.pkg");
   await run(["/usr/bin/productbuild", "--identifier", `${desktopConfig.app.identifier}.installer`, "--version", version,
-    ...(component ? ["--package", component] : ["--component", appPath, "/Applications"]),
-    unsignedOutput]);
+    "--distribution", distribution, "--package-path", stagingDir, productArchive]);
+  // ACT: 发行标识在签名前显式写入 PKG，不依赖 productbuild 的安装向导资源收录。
+  const expandedPackage = join(stagingDir, "expandedPackage");
+  await run(["/usr/sbin/pkgutil", "--expand", productArchive, expandedPackage]);
+  const productResources = join(expandedPackage, "Resources");
+  mkdirSync(productResources, { recursive: true });
+  writeAtomicSync(join(productResources, "updateIdentity.json"), identity);
+  const unsignedOutput = signed ? join(stagingDir, "unsigned.pkg") : output;
+  await run(["/usr/sbin/pkgutil", "--flatten", expandedPackage, unsignedOutput]);
+  await verifyPackageIdentity(unsignedOutput, identity);
   if (signed) {
     await run(["/usr/bin/productsign", "--sign", installerIdentity!, "--timestamp",
       ...(installerKeychain ? ["--keychain", installerKeychain] : []), unsignedOutput, output]);
@@ -148,7 +176,13 @@ trap 'exit 2' HUP INT TERM
       await run(["xcrun", "stapler", "validate", output]);
     }
   }
+  await verifyPackageIdentity(output, identity);
+  const pkg = file(output);
+  const digest = new Bun.CryptoHasher("sha256");
+  for await (const chunk of pkg.stream()) digest.update(chunk);
+  manifest.pkg = { file: outputName, size: pkg.size, sha256: digest.digest("hex") };
   renameSync(output, join(artifactDir, outputName));
+  writeAtomicSync(manifestPath, JSON.stringify(manifest));
   // 清理本仓库旧构建生成的拖拽镜像与 hdiutil 包装器。
   rmSync(join(artifactDir, `macos-${process.arch}-${desktopConfig.app.name.replace(/ /g, "")}.dmg`), { force: true });
   rmSync(resolve(projectDir, "build/desktop/macTools"), { recursive: true, force: true });
